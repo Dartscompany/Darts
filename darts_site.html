@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДАРТС Недвижимость — агентство полного цикла</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --or:#E8711A;--or2:#FBF0E7;--or3:#F5D4B0;
+  --bg:#F0EDE6;--bg1:#FFFFFF;--bg2:#F7F5F1;--bg3:#EBE8E1;
+  --dk:#3D3530;--dk2:#524840;--tx:#2A2420;--tx2:#6B6760;--tx3:#A09990;
+  --brd:#D4CFC5;--card:#FFFFFF;
+  --sb:#4A423C;--sb2:#3D3530;--sb-tx:rgba(255,255,255,0.65);--sb-act:rgba(232,113,26,0.18);
+  --sans:'Inter',sans-serif
+}
+html,body{height:100%;background:var(--bg);font-family:var(--sans);color:var(--tx)}
+.shell{display:grid;grid-template-columns:240px 1fr;height:100vh;background:var(--bg)}
+.sb{background:var(--sb);display:flex;flex-direction:column;overflow-y:auto;height:100vh;position:fixed;width:240px}
+.main-wrap{margin-left:240px;display:flex;flex-direction:column;min-height:100vh}
+.logo-wrap{padding:18px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.08);margin-bottom:10px;cursor:pointer;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-wrap:hover{background:rgba(255,255,255,0.05)}
+.lt .main{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2.5px;color:#fff;line-height:1;display:block}
+.lt .sub{font-size:7.5px;letter-spacing:3.5px;color:var(--or);text-transform:uppercase;font-weight:500;margin-top:3px;display:block}
+.sn{display:flex;align-items:center;gap:10px;padding:8px 20px;font-size:12.5px;color:var(--sb-tx);cursor:pointer;transition:all 0.15s;letter-spacing:0.2px}
+.sn i{font-size:16px;width:18px;text-align:center;flex-shrink:0}
+.sn:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.sn.act{color:var(--or);background:var(--sb-act)}
+.sdiv{height:1px;background:rgba(255,255,255,0.08);margin:6px 20px}
+.ssec{font-size:9px;letter-spacing:2.5px;color:rgba(255,255,255,0.28);text-transform:uppercase;padding:6px 20px;margin-top:2px}
+.slb{background:var(--or);color:#fff;border:none;padding:10px 0;font-size:12px;font-weight:500;cursor:pointer;margin:auto 16px 16px;display:block;width:calc(100% - 32px);letter-spacing:0.5px}
+.slb:hover{background:#D06418}
+.tb{display:flex;align-items:center;gap:10px;padding:14px 28px 12px;background:var(--bg);border-bottom:1px solid var(--brd);position:sticky;top:0;z-index:10}
+.tbb{width:28px;height:28px;background:none;border:1px solid var(--brd);color:var(--tx2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px}
+.sb2{flex:1;max-width:300px;background:var(--bg1);border:1px solid var(--brd);display:flex;align-items:center;padding:7px 14px;gap:7px}
+.sb2 input{background:none;border:none;outline:none;color:var(--tx);font-size:12px;font-family:var(--sans);width:100%}
+.sb2 input::placeholder{color:var(--tx3)}
+.tbr{margin-left:auto;display:flex;align-items:center;gap:8px}
+.av{width:30px;height:30px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#fff;cursor:pointer;letter-spacing:1px}
+.ct{padding:24px 28px;flex:1}
+.pg{display:none}.pg.act{display:block}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.st{font-size:18px;font-weight:500;color:var(--tx);letter-spacing:-0.3px}
+.sm{font-size:11px;color:var(--tx3);cursor:pointer;display:flex;align-items:center;gap:3px;letter-spacing:0.3px;text-transform:uppercase}
+.sm:hover{color:var(--or)}
+.bor{background:var(--sb);color:#fff;border:none;padding:9px 20px;font-size:12px;font-weight:400;cursor:pointer;letter-spacing:0.5px}
+.bor:hover{background:var(--dk2)}
+.bwh{background:transparent;color:var(--tx);border:1px solid var(--brd);padding:9px 20px;font-size:12px;cursor:pointer;letter-spacing:0.3px}
+.bwh:hover{border-color:var(--tx2);background:var(--bg2)}
+.bsm{background:var(--or2);color:var(--or);border:1px solid var(--or3);padding:6px 14px;font-size:11px;cursor:pointer;letter-spacing:0.3px}
+.bsm:hover{background:var(--or3)}
+.bor-sm{background:var(--sb);color:#fff;border:none;padding:6px 14px;font-size:11px;cursor:pointer;letter-spacing:0.5px}
+.bor-sm:hover{background:var(--dk2)}
+.nl{display:flex;flex-direction:column;gap:1px}
+.nr{display:flex;align-items:center;gap:14px;padding:11px 12px;cursor:pointer;transition:background 0.15s;border-bottom:1px solid var(--bg3)}
+.nr:hover{background:var(--bg2)}
+.nth{width:42px;height:42px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;letter-spacing:0.5px}
+.ni{flex:1;min-width:0}
+.nt{font-size:13px;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--tx)}
+.nm{font-size:11px;color:var(--tx3);margin-top:2px}
+.nc{font-size:10px;color:var(--or);flex-shrink:0;letter-spacing:1px;text-transform:uppercase}
+.yr{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.yr::-webkit-scrollbar{display:none}
+.hero{background:var(--sb);padding:32px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(232,113,26,0.08) 0%,transparent 60%);pointer-events:none}
+.htag{font-size:9px;letter-spacing:4px;color:var(--or);text-transform:uppercase;margin-bottom:12px}
+.htt{font-size:24px;font-weight:300;line-height:1.3;margin-bottom:10px;color:#fff;letter-spacing:-0.3px}
+.hd{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:20px;border-left:2px solid var(--or);padding-left:14px}
+.hb{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.hbor{background:var(--or);color:#fff;border:none;padding:10px 22px;font-size:12px;cursor:pointer;letter-spacing:0.5px}
+.hbwh{background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:10px 22px;font-size:12px;cursor:pointer}
+.hbwh:hover{background:rgba(255,255,255,0.08)}
+.hs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08)}
+.hsi{background:var(--sb);padding:14px 16px}
+.hsv{font-size:12px;color:#fff;margin-bottom:3px}
+.hsl{font-size:10px;color:rgba(255,255,255,0.35)}
+.fr{display:flex;gap:2px;margin-bottom:18px;flex-wrap:wrap}
+.fl{padding:6px 16px;background:var(--bg2);border:1px solid var(--brd);color:var(--tx2);font-size:11px;cursor:pointer;transition:all 0.15s}
+.fl.act{background:var(--sb);color:#fff;border-color:var(--sb)}
+.fl:hover:not(.act){background:var(--bg3)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--brd)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);padding:18px}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.fld{margin-bottom:11px}
+.fld label{font-size:9px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:5px}
+.fld input,.fld select,.fld textarea{width:100%;background:transparent;border:none;border-bottom:1px solid var(--brd);color:var(--tx);padding:9px 0;font-size:13px;outline:none;font-family:var(--sans);transition:border-color 0.15s;resize:none}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-bottom-color:var(--sb)}
+.fld select option{background:#fff;color:var(--tx)}
+.es{text-align:center;padding:48px 20px;color:var(--tx3)}
+.es i{font-size:36px;margin-bottom:12px;display:block;color:var(--brd)}
+.es p{font-size:12px;line-height:1.7;margin-bottom:16px}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(61,53,48,0.5);z-index:100;align-items:flex-start;justify-content:center;padding:32px 24px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.mo{background:#fff;padding:28px;width:100%;max-width:480px;box-shadow:0 16px 48px rgba(0,0,0,0.15);margin:auto}
+.cb{background:var(--card);padding:22px;margin-bottom:14px}
+.chd{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.cav{width:46px;height:46px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;letter-spacing:1px}
+.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--brd);margin-bottom:18px;border:1px solid var(--brd)}
+.mt{background:var(--bg2);padding:14px 10px;text-align:center}
+.mv{font-size:20px;font-weight:300;color:var(--sb);line-height:1;letter-spacing:-0.5px}
+.ml{font-size:9px;color:var(--tx3);margin-top:4px;letter-spacing:1px;text-transform:uppercase}
+.tbl{width:100%;font-size:12px;border-collapse:collapse}
+.tbl th{text-align:left;color:var(--tx3);padding:6px 0;border-bottom:1px solid var(--brd);font-weight:400;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+.tbl td{padding:9px 0;border-bottom:1px solid var(--bg3);color:var(--tx2);font-size:12px}
+.tbl td:first-child{color:var(--tx)}
+.bdk{display:inline-block;padding:2px 8px;font-size:10px;letter-spacing:0.5px}
+.bok{background:#E8F4EF;color:#0B5E3D}
+.bpd{background:var(--or2);color:#8B4400}
+.bnw{background:#EBF0F8;color:#1A3A6B}
+.bred{background:#FAEAEA;color:#8B1A1A}
+.lw{max-width:340px;margin:40px auto}
+.lc{background:var(--card);padding:28px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.rrow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:20px}
+.rp{padding:8px 3px;text-align:center;background:var(--bg3);border:1px solid var(--brd);color:var(--tx2);font-size:10px;cursor:pointer;transition:all 0.15s}
+.rp.act{background:var(--sb);color:#fff;border-color:var(--sb)}
+.pb{height:2px;background:var(--brd);overflow:hidden;margin-top:4px}
+.pf{height:100%;background:var(--sb)}
+.sp{display:inline-block;width:12px;height:12px;border:1.5px solid var(--brd);border-top-color:var(--or);border-radius:50%;animation:sp .7s linear infinite;vertical-align:middle;margin-right:5px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.dir-card{background:var(--card);padding:20px;display:flex;align-items:center;gap:18px;margin-bottom:16px;border-bottom:1px solid var(--brd)}
+.dir-av{width:60px;height:60px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;flex-shrink:0;letter-spacing:2px}
+.map-block{background:var(--card);margin-bottom:16px}
+.map-hd{padding:14px 18px;border-bottom:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between}
+.map-ph{height:180px;background:var(--bg3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;cursor:pointer}
+.map-ph:hover{background:var(--bg2)}
+.map-grid{position:absolute;inset:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 24px,#000 24px,#000 25px),repeating-linear-gradient(90deg,transparent,transparent 36px,#000 36px,#000 37px)}
+.map-lbl{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:var(--sb);padding:6px 14px;font-size:11px;white-space:nowrap;color:#fff;letter-spacing:0.5px}
+.soc{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.sb3{display:flex;align-items:center;gap:6px;padding:8px 14px;background:var(--bg3);border:1px solid var(--brd);font-size:11px;color:var(--tx2);cursor:pointer;transition:all 0.15s}
+.sb3:hover{background:var(--sb);color:#fff;border-color:var(--sb)}
+.cc{background:var(--card);padding:18px}
+.cc.ac{border-left:2px solid var(--or)}
+.ci{width:36px;height:36px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--tx2);margin-bottom:12px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--brd);margin-bottom:14px}
+.rl-card{background:var(--card);padding:18px;position:relative;border-bottom:2px solid transparent;transition:border-color 0.2s}
+.rl-card:hover{border-bottom-color:var(--or)}
+.rl-av{width:64px;height:64px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;letter-spacing:2px}
+.rl-name{font-size:13px;font-weight:500;text-align:center;margin-bottom:3px;color:var(--tx)}
+.rl-spec{font-size:11px;color:var(--or);text-align:center;margin-bottom:4px}
+.rl-city{font-size:10px;color:var(--tx3);text-align:center;margin-bottom:10px;letter-spacing:0.5px;text-transform:uppercase}
+.rl-stats{display:flex;justify-content:center;gap:16px;margin-bottom:10px}
+.rl-sv{font-size:16px;font-weight:300;text-align:center;line-height:1;color:var(--tx)}
+.rl-sl{font-size:9px;color:var(--tx3);text-align:center;margin-top:2px;letter-spacing:1px;text-transform:uppercase}
+.rl-bio{font-size:11px;color:var(--tx2);line-height:1.6;margin-bottom:10px}
+.rl-del{position:absolute;top:8px;right:8px;background:none;border:none;color:var(--tx3);cursor:pointer;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.rl-del:hover{color:#8B1A1A}
+.rl-phone{font-size:11px;color:var(--or);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:4px}
+.req-card{background:var(--card);padding:16px;margin-bottom:1px;transition:all 0.15s}
+.req-card:hover{border-left:2px solid var(--or);margin-left:-2px;padding-left:18px}
+.req-hd{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.req-icon{width:32px;height:32px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.req-title{font-size:13px;font-weight:500;color:var(--tx)}
+.req-sub{font-size:11px;color:var(--tx3);margin-top:1px}
+.req-body{font-size:11px;color:var(--tx2);line-height:1.65;margin-bottom:11px;background:var(--bg2);padding:10px;border-left:2px solid var(--brd)}
+.req-actions{display:flex;gap:8px;flex-wrap:wrap}
+.req-field{display:flex;gap:6px;margin-bottom:4px;font-size:11px}
+.req-field .lbl{color:var(--tx3);flex-shrink:0;width:110px}
+.req-field .val{color:var(--tx)}
+.crm-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--bg3)}
+.crm-row:last-child{border-bottom:none}
+.crm-st{width:6px;height:6px;flex-shrink:0}
+.deal-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bg3);font-size:12px}
+.deal-row:last-child{border-bottom:none}
+.color-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}
+.cd{width:22px;height:22px;cursor:pointer;border:2px solid transparent;transition:border-color 0.15s}
+.cd.sel{border-color:var(--sb)}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--sb);color:#fff;padding:9px 20px;font-size:11px;z-index:200;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.3s;letter-spacing:0.5px}
+</style>
+</head>
+<body>
+
+<div style="display:flex;height:100vh">
+  <!-- САЙДБАР -->
+  <aside class="sb">
+    <div class="logo-wrap" onclick="gp('home',null)">
+      <svg width="40" height="40" viewBox="0 0 46 46" fill="none">
+        <rect x="1.5" y="1.5" width="43" height="43" stroke="#E8711A" stroke-width="2.2" fill="none"/>
+        <line x1="23" y1="1.5" x2="23" y2="44.5" stroke="#E8711A" stroke-width="1.4"/>
+        <line x1="1.5" y1="23" x2="44.5" y2="23" stroke="#E8711A" stroke-width="1.4"/>
+        <line x1="8" y1="38" x2="38" y2="8" stroke="#E8711A" stroke-width="2.2" stroke-linecap="round"/>
+        <polyline points="28,8 38,8 38,18" stroke="#E8711A" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="lt">
+        <span class="main">ДАРТС</span>
+        <span class="sub">Недвижимость</span>
+      </div>
+    </div>
+    <div class="sn act" onclick="gp('home',this)"><i class="ti ti-home"></i>Главная</div>
+    <div class="sn" onclick="gp('news',this)"><i class="ti ti-news"></i>Новости рынка</div>
+    <div class="sn" onclick="gp('devs',this)"><i class="ti ti-building-skyscraper"></i>Застройщики</div>
+    <div class="sn" onclick="gp('realtors',this)"><i class="ti ti-users"></i>Риэлторы</div>
+    <div class="sn" onclick="gp('contacts',this)"><i class="ti ti-map-pin"></i>Контакты</div>
+    <div class="sdiv"></div>
+    <div class="ssec">Кабинеты</div>
+    <div class="sn" onclick="gp('login',this)"><i class="ti ti-lock"></i>Войти</div>
+    <div class="sdiv"></div>
+    <div class="ssec">Сервисы</div>
+    <div class="sn"><i class="ti ti-refresh"></i>Trade-In</div>
+    <div class="sn"><i class="ti ti-chart-bar"></i>Инвестиции</div>
+    <div class="sn" onclick="gp('pwa',this)"><i class="ti ti-device-mobile"></i>Приложение</div>
+    <div class="sdiv"></div>
+    <div class="ssec">Города</div>
+    <div class="sn"><i class="ti ti-map-pin"></i>Екатеринбург</div>
+    <div class="sn"><i class="ti ti-map-pin"></i>Москва</div>
+    <button class="slb" onclick="gp('login',null)">ВОЙТИ В КАБИНЕТ</button>
+  </aside>
+
+  <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+  <div style="margin-left:240px;flex:1;display:flex;flex-direction:column;overflow-y:auto;height:100vh">
+    <div class="tb">
+      <button class="tbb" onclick="history.back()"><i class="ti ti-chevron-left"></i></button>
+      <button class="tbb" onclick="history.forward()"><i class="ti ti-chevron-right"></i></button>
+      <div class="sb2"><i class="ti ti-search" style="font-size:13px;color:var(--tx3)"></i><input placeholder="Объекты, риэлторы, застройщики…"></div>
+      <div class="tbr"><span style="font-size:10px;color:var(--tx3);letter-spacing:1px;text-transform:uppercase">Екб · Мск</span><div class="av">МК</div></div>
+    </div>
+    <div class="ct">
+
+      <!-- ГЛАВНАЯ -->
+      <div id="p-home" class="pg act">
+        <div class="hero">
+          <div class="htag">Екатеринбург · Москва · 2026</div>
+          <div class="htt">Агентство недвижимости<br>полного цикла.</div>
+          <div class="hd">От подбора объекта до выработки вашей инвестиционной стратегии в сфере недвижимости.</div>
+          <div class="hb">
+            <button class="hbor" onclick="gp('devs',null)">ЗАСТРОЙЩИКИ</button>
+            <button class="hbwh" onclick="gp('realtors',null)">РИЭЛТОРЫ</button>
+            <button class="hbwh" onclick="gp('contacts',null)">КОНТАКТЫ</button>
+          </div>
+          <div class="hs">
+            <div class="hsi"><div class="hsv">Рабочие места для риэлторов</div><div class="hsl">Офис «всё включено» · Екатеринбург</div></div>
+            <div class="hsi"><div class="hsv">Покупка и продажа жилья</div><div class="hsl">Первичный и вторичный рынок</div></div>
+            <div class="hsi"><div class="hsv">Trade-In · Инвестиции · Аренда</div><div class="hsl">Коммерческая недвижимость</div></div>
+          </div>
+        </div>
+        <div style="margin-bottom:24px">
+          <div class="sh"><div class="st">Новости рынка</div><div class="sm" onclick="gp('news',null)">ВСЕ НОВОСТИ <i class="ti ti-arrow-right"></i></div></div>
+          <div id="hn" class="nl"><div style="padding:12px;color:var(--tx3);font-size:12px"><span class="sp"></span>Загружаем…</div></div>
+        </div>
+        <div>
+          <div class="sh"><div class="st">Наши риэлторы</div><div class="sm" onclick="gp('realtors',null)">ВСЯ КОМАНДА <i class="ti ti-arrow-right"></i></div></div>
+          <div class="yr" id="hr"><div style="font-size:12px;color:var(--tx3);padding:8px 0">Команда пока не добавлена</div></div>
+        </div>
+      </div>
+
+      <!-- НОВОСТИ -->
+      <div id="p-news" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">Новости рынка</div><button class="bor-sm" onclick="ln()">ОБНОВИТЬ</button></div>
+        <div class="fr"><div class="fl act" onclick="fn('all',this)">Все</div><div class="fl" onclick="fn('ekb',this)">Екатеринбург</div><div class="fl" onclick="fn('msk',this)">Москва</div><div class="fl" onclick="fn('ip',this)">Ипотека</div><div class="fl" onclick="fn('inv',this)">Инвестиции</div></div>
+        <div id="nf" class="nl"></div>
+      </div>
+
+      <!-- ЗАСТРОЙЩИКИ -->
+      <div id="p-devs" class="pg">
+        <div class="sh" style="margin-bottom:10px"><div class="st">Застройщики</div><button class="bor-sm" onclick="sdm('dev')">+ ДОБАВИТЬ</button></div>
+        <div style="font-size:12px;color:var(--tx3);margin-bottom:16px" id="dh">Раздел пополняется. Добавьте первого партнёра.</div>
+        <div class="fr" id="df" style="display:none"><div class="fl act" onclick="fd('all',this)">Все</div><div class="fl" onclick="fd('ekb',this)">Екатеринбург</div><div class="fl" onclick="fd('msk',this)">Москва</div><div class="fl" onclick="fd('ti',this)">Trade-In</div></div>
+        <div id="dg" class="g2" style="background:var(--brd)"></div>
+        <div id="de" class="es"><i class="ti ti-building-skyscraper"></i><p>Застройщики ещё не добавлены.</p></div>
+      </div>
+
+      <!-- РИЭЛТОРЫ -->
+      <div id="p-realtors" class="pg">
+        <div class="sh" style="margin-bottom:8px"><div class="st">Наша команда</div><button class="bor" onclick="gp('login',null)">ВОЙТИ И СОЗДАТЬ ПОРТФОЛИО</button></div>
+        <div style="font-size:12px;color:var(--tx2);margin-bottom:20px;background:var(--or2);border-left:3px solid var(--or);padding:11px 14px">Каждый риэлтор ДАРТС самостоятельно заполняет карточку через личный кабинет.</div>
+        <div id="rl-grid" class="g3"></div>
+        <div id="rl-empty" class="es"><i class="ti ti-user-plus"></i><p>Карточки риэлторов появятся здесь после заполнения портфолио в личном кабинете.</p></div>
+      </div>
+
+      <!-- КОНТАКТЫ -->
+      <div id="p-contacts" class="pg">
+        <div class="sh" style="margin-bottom:16px"><div class="st">Контакты</div></div>
+        <div class="dir-card">
+          <div class="dir-av">МК</div>
+          <div>
+            <div style="font-size:9px;letter-spacing:2.5px;color:var(--or);text-transform:uppercase;margin-bottom:4px">Основатель · Директор</div>
+            <div style="font-size:17px;font-weight:400;margin-bottom:3px">Кошкина Мария Николаевна</div>
+            <div style="font-size:11px;color:var(--tx2);margin-bottom:12px">Агентство «ДАРТС» · Екатеринбург · Москва</div>
+            <a href="tel:+79126009432" style="display:inline-flex;align-items:center;gap:8px;background:var(--sb);padding:9px 16px;font-size:13px;color:#fff;text-decoration:none;letter-spacing:0.5px"><i class="ti ti-phone"></i> +7 912 600-94-32</a>
+          </div>
+        </div>
+        <div class="cg">
+          <div class="cc ac">
+            <div class="ci"><i class="ti ti-map-pin"></i></div>
+            <div style="font-size:9px;letter-spacing:2px;color:var(--tx3);text-transform:uppercase;margin-bottom:5px">Офис Екатеринбург</div>
+            <div style="font-size:14px;margin-bottom:3px">ул. Маршала Жукова, 14</div>
+            <div style="font-size:11px;color:var(--tx2);margin-bottom:4px">г. Екатеринбург</div>
+            <div style="font-size:10px;color:var(--tx3)">Пн–Пт 9:00–20:00 · Сб 10:00–18:00</div>
+            <a onclick="oym()" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--or);cursor:pointer;margin-top:10px;text-decoration:none"><i class="ti ti-map-2"></i> Яндекс Карты</a>
+          </div>
+          <div class="cc">
+            <div class="ci"><i class="ti ti-building"></i></div>
+            <div style="font-size:9px;letter-spacing:2px;color:var(--tx3);text-transform:uppercase;margin-bottom:5px">Москва</div>
+            <div style="font-size:14px;margin-bottom:3px">Коворкинг-офис</div>
+            <div style="font-size:11px;color:var(--tx2);margin-bottom:4px">г. Москва</div>
+            <div style="font-size:10px;color:var(--tx3)">По предварительной записи</div>
+            <div style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--tx3);margin-top:10px"><i class="ti ti-clock"></i> Адрес уточняется</div>
+          </div>
+        </div>
+        <div class="map-block">
+          <div class="map-hd"><div><div style="font-size:13px">Как нас найти</div><div style="font-size:11px;color:var(--tx3);margin-top:2px">ул. Маршала Жукова, 14, Екатеринбург</div></div><button class="bor-sm" onclick="oym()">ЯНДЕКС КАРТЫ</button></div>
+          <div class="map-ph" onclick="oym()"><div class="map-grid"></div><div style="width:44px;height:44px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;position:relative;z-index:1"><i class="ti ti-map-pin"></i></div><div style="font-size:12px;color:var(--tx2);position:relative;z-index:1;text-align:center">Нажмите для открытия карты</div><div class="map-lbl">ул. Маршала Жукова, 14</div></div>
+        </div>
+        <div class="cc">
+          <div style="font-size:12px;font-weight:500;margin-bottom:14px">Способы связи</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:4px">
+            <div><div style="font-size:9px;letter-spacing:2px;color:var(--tx3);text-transform:uppercase;margin-bottom:5px">Телефон</div><a href="tel:+79126009432" style="font-size:14px;color:var(--tx);text-decoration:none">+7 912 600-94-32</a></div>
+            <div><div style="font-size:9px;letter-spacing:2px;color:var(--tx3);text-transform:uppercase;margin-bottom:5px">E-mail</div><a href="mailto:info@darts-ekb.ru" style="font-size:14px;color:var(--tx);text-decoration:none">info@darts-ekb.ru</a></div>
+          </div>
+          <div class="soc"><div class="sb3"><i class="ti ti-brand-telegram" style="font-size:14px"></i> Telegram</div><div class="sb3"><i class="ti ti-brand-vk" style="font-size:14px"></i> ВКонтакте</div><div class="sb3"><i class="ti ti-phone" style="font-size:14px"></i> WhatsApp</div></div>
+        </div>
+      </div>
+
+      <!-- ВХОД -->
+      <div id="p-login" class="pg">
+        <div class="lw"><div class="lc">
+          <div style="font-size:20px;font-weight:300;text-align:center;margin-bottom:4px">Войти в кабинет</div>
+          <div style="font-size:10px;color:var(--tx3);text-align:center;margin-bottom:20px;letter-spacing:2px;text-transform:uppercase">ДАРТС Недвижимость</div>
+          <div class="rrow">
+            <div class="rp act" onclick="sr('rl',this)"><i class="ti ti-user" style="font-size:13px;display:block;margin-bottom:3px"></i>Риэлтор</div>
+            <div class="rp" onclick="sr('dir',this)"><i class="ti ti-crown" style="font-size:13px;display:block;margin-bottom:3px"></i>Директор</div>
+            <div class="rp" onclick="sr('adm',this)"><i class="ti ti-settings" style="font-size:13px;display:block;margin-bottom:3px"></i>Администр.</div>
+            <div class="rp" onclick="sr('jur',this)"><i class="ti ti-scale" style="font-size:13px;display:block;margin-bottom:3px"></i>Юрист</div>
+            <div class="rp" onclick="sr('crm',this)"><i class="ti ti-database" style="font-size:13px;display:block;margin-bottom:3px"></i>CRM</div>
+          </div>
+          <div class="fld"><label>E-mail</label><input type="email" placeholder="name@darts-ekb.ru"></div>
+          <div class="fld"><label>Пароль</label><input type="password" placeholder="••••••••"></div>
+          <button class="bor" style="width:100%;padding:12px;font-size:12px;margin-top:16px;letter-spacing:1px" onclick="dl()">ВОЙТИ</button>
+        </div></div>
+      </div>
+
+      <!-- КАБИНЕТ РИЭЛТОРА -->
+      <div id="p-rl" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">Мой кабинет</div><div style="display:flex;gap:8px"><button class="bsm" onclick="sdm('req_legal')"><i class="ti ti-scale"></i> Запрос юристу</button><button class="bsm" onclick="sdm('req_room')"><i class="ti ti-calendar"></i> Переговорка</button><button class="bwh" style="font-size:11px;padding:6px 12px" onclick="gp('login',null)">Выйти</button></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--brd);margin-bottom:18px">
+          <div class="card"><div style="font-size:9px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Портфолио</div><div id="rl-port-preview" style="text-align:center;padding:6px 0"><div style="width:50px;height:50px;background:var(--or);margin:0 auto 9px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff">МИ</div><div style="font-size:13px;margin-bottom:2px">Мой профиль</div><div style="font-size:10px;color:var(--tx3);margin-bottom:10px">Риэлтор · ДАРТС</div><button class="bor-sm" onclick="sdm('portfolio')">ЗАПОЛНИТЬ</button></div></div>
+          <div class="card"><div style="font-size:9px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">Мои сделки</div><div class="mets" style="grid-template-columns:1fr 1fr;margin-bottom:0"><div class="mt"><div class="mv" id="rl-deals-cnt">0</div><div class="ml">Всего</div></div><div class="mt"><div class="mv">0</div><div class="ml">В работе</div></div></div><button class="bsm" style="width:100%;margin-top:10px;text-align:center" onclick="sdm('add_deal')">+ ДОБАВИТЬ</button></div>
+          <div class="card"><div style="font-size:9px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px">CRM</div><div style="font-size:11px;color:var(--tx2);line-height:1.65;margin-bottom:9px">Синхронизация с АМО CRM</div><div style="display:flex;align-items:center;gap:6px;margin-bottom:9px"><div style="width:6px;height:6px;background:#0B5E3D"></div><div style="font-size:11px;color:#0B5E3D">Подключено</div></div><button class="bsm" style="width:100%;text-align:center" onclick="gp('crm',null)">ОТКРЫТЬ CRM</button></div>
+        </div>
+        <div style="margin-bottom:14px"><div style="font-size:11px;font-weight:500;margin-bottom:10px;color:var(--tx);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px"><i class="ti ti-send" style="color:var(--or)"></i> Мои заявки</div><div id="rl-reqs"><div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Заявок пока нет.</div></div></div>
+        <div><div style="font-size:11px;font-weight:500;margin-bottom:10px;color:var(--tx);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px"><i class="ti ti-chart-bar" style="color:var(--or)"></i> Мои сделки</div><div id="rl-deals-list"><div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Сделки появятся здесь.</div></div></div>
+      </div>
+
+      <!-- КАБИНЕТ ЮРИСТА -->
+      <div id="p-jur" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">Кабинет юрисконсульта</div><div style="display:flex;gap:8px"><span class="bdk bnw">Юрист</span><button class="bwh" style="font-size:11px;padding:6px 12px" onclick="gp('login',null)">Выйти</button></div></div>
+        <div class="mets"><div class="mt"><div class="mv" id="jur-new-cnt">0</div><div class="ml">Новых</div></div><div class="mt"><div class="mv" id="jur-wip-cnt">0</div><div class="ml">В работе</div></div><div class="mt"><div class="mv" id="jur-done-cnt">0</div><div class="ml">Исполнено</div></div><div class="mt"><div class="mv" id="jur-ret-cnt">0</div><div class="ml">Возвращено</div></div></div>
+        <div class="fr" id="jf"><div class="fl act" onclick="jurFilter('all',this)">Все</div><div class="fl" onclick="jurFilter('new',this)">Новые</div><div class="fl" onclick="jurFilter('wip',this)">В работе</div><div class="fl" onclick="jurFilter('done',this)">Исполнено</div><div class="fl" onclick="jurFilter('ret',this)">Возвращено</div></div>
+        <div id="jur-list"><div class="es"><i class="ti ti-scale"></i><p>Заявок пока нет.</p></div></div>
+      </div>
+
+      <!-- КАБИНЕТ АДМИНИСТРАТОРА -->
+      <div id="p-adm" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">Администратор</div><div style="display:flex;gap:8px"><button class="bor-sm" onclick="sdm('dev')">+ ЗАСТРОЙЩИК</button><button class="bsm" onclick="sdm('rl_admin')">+ РИЭЛТОР</button><button class="bwh" style="font-size:11px;padding:6px 12px" onclick="gp('login',null)">Выйти</button></div></div>
+        <div class="mets"><div class="mt"><div class="mv" id="adm-rl-cnt">0</div><div class="ml">Риэлторов</div></div><div class="mt"><div class="mv" id="adm-dev-cnt">0</div><div class="ml">Застройщиков</div></div><div class="mt"><div class="mv" id="adm-room-cnt">0</div><div class="ml">Броней</div></div><div class="mt"><div class="mv" id="adm-req-cnt">0</div><div class="ml">Запросов</div></div></div>
+        <div style="margin-bottom:14px"><div style="font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px"><i class="ti ti-calendar" style="color:var(--or)"></i> Заявки на переговорку</div><div id="adm-rooms"><div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Нет заявок.</div></div></div>
+        <div><div style="font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px"><i class="ti ti-users" style="color:var(--or)"></i> Риэлторы</div><div id="adm-rl-list"><div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Риэлторы не добавлены.</div></div></div>
+      </div>
+
+      <!-- КАБИНЕТ ДИРЕКТОРА -->
+      <div id="p-dir" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">Кабинет директора</div><button class="bwh" style="font-size:11px;padding:6px 12px" onclick="gp('login',null)">Выйти</button></div>
+        <div class="cb">
+          <div class="chd"><div class="cav">МК</div><div><div style="font-size:15px">Кошкина Мария Николаевна</div><div style="font-size:11px;color:var(--or);margin-top:2px">Основатель · CEO</div></div><div style="margin-left:auto"><span class="bdk bok">Полный доступ</span></div></div>
+          <div class="mets"><div class="mt"><div class="mv">195</div><div class="ml">Сделок план</div></div><div class="mt"><div class="mv" id="dir-rl-cnt">0</div><div class="ml">Риэлторов</div></div><div class="mt"><div class="mv" id="dir-dev-cnt">0</div><div class="ml">Застройщиков</div></div><div class="mt"><div class="mv" id="dir-jur-cnt">0</div><div class="ml">Заявок юристу</div></div></div>
+          <div class="g2" style="gap:14px;background:transparent">
+            <div><div style="font-size:9px;color:var(--tx3);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px">Активность</div><div style="display:flex;flex-direction:column;gap:9px"><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Открытый рынок</span><span style="color:var(--or)">195 сделок</span></div><div class="pb"><div class="pf" style="width:52%"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Trade-In</span><span style="color:var(--or)">15 сделок</span></div><div class="pb"><div class="pf" style="width:35%"></div></div></div><div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>УГМК</span><span style="color:var(--or)">20 сделок</span></div><div class="pb"><div class="pf" style="width:28%"></div></div></div></div></div>
+            <div style="display:flex;flex-direction:column;gap:8px"><button class="bor" style="text-align:left;padding:10px 14px;font-size:12px" onclick="gp('jur',null)"><i class="ti ti-scale"></i>  Заявки юристу</button><button class="bwh" style="text-align:left;padding:10px 14px;font-size:12px" onclick="gp('realtors',null)"><i class="ti ti-users"></i>  Команда</button><button class="bwh" style="text-align:left;padding:10px 14px;font-size:12px" onclick="gp('devs',null)"><i class="ti ti-building-skyscraper"></i>  Застройщики</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CRM -->
+      <div id="p-crm" class="pg">
+        <div class="sh" style="margin-bottom:14px"><div class="st">CRM — сделки</div><div style="display:flex;gap:8px"><span class="bdk bok">Синхронизировано</span><button class="bwh" style="font-size:11px;padding:6px 12px" onclick="gp('rl',null)">Назад</button></div></div>
+        <div style="font-size:12px;color:var(--tx2);margin-bottom:14px;background:var(--or2);border-left:2px solid var(--or);padding:10px 14px">АМО CRM / Лотинфо — интеграция активна.</div>
+        <div id="crm-list"><div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Сделки появятся после синхронизации.</div></div>
+        <button class="bor" style="margin-top:14px;font-size:12px;padding:10px 22px;letter-spacing:0.5px" onclick="loadCRM()">ЗАГРУЗИТЬ ИЗ CRM</button>
+      </div>
+
+      <!-- PWA -->
+      <div id="p-pwa" class="pg">
+        <div class="sh" style="margin-bottom:18px"><div class="st">Мобильное приложение</div><span style="font-size:9px;background:var(--or2);color:var(--or);padding:4px 12px;letter-spacing:2px;border:1px solid var(--or3)">PWA</span></div>
+        <div style="background:var(--card)">
+          <div style="padding:22px 26px;border-bottom:1px solid var(--brd);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center">
+            <div><div style="font-size:9px;letter-spacing:3px;color:var(--or);text-transform:uppercase;margin-bottom:10px">Прогрессивное веб-приложение</div><div style="font-size:18px;font-weight:300;margin-bottom:8px">ДАРТС — на вашем телефоне</div><div style="font-size:12px;color:var(--tx2);line-height:1.7">Добавьте на главный экран — без App Store и Google Play.</div></div>
+            <svg width="66" height="66" viewBox="0 0 76 76" style="background:var(--sb)"><rect x="3" y="3" width="70" height="70" rx="0" fill="none" stroke="#E8711A" stroke-width="3"/><line x1="38" y1="3" x2="38" y2="73" stroke="#E8711A" stroke-width="2"/><line x1="3" y1="38" x2="73" y2="38" stroke="#E8711A" stroke-width="2"/><line x1="14" y1="62" x2="62" y2="14" stroke="#E8711A" stroke-width="3" stroke-linecap="round"/><polyline points="46,14 62,14 62,30" stroke="#E8711A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--brd)">
+            <div style="padding:16px 18px;border-right:1px solid var(--brd)"><div style="width:22px;height:22px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;margin-bottom:10px">1</div><div style="font-size:12px;font-weight:500;margin-bottom:4px">Откройте сайт</div><div style="font-size:11px;color:var(--tx3)">Safari или Chrome</div></div>
+            <div style="padding:16px 18px;border-right:1px solid var(--brd)"><div style="width:22px;height:22px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;margin-bottom:10px">2</div><div style="font-size:12px;font-weight:500;margin-bottom:4px">«Поделиться»</div><div style="font-size:11px;color:var(--tx3)">Кнопка внизу или «⋮»</div></div>
+            <div style="padding:16px 18px"><div style="width:22px;height:22px;background:var(--sb);display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;margin-bottom:10px">3</div><div style="font-size:12px;font-weight:500;margin-bottom:4px">На экран Домой</div><div style="font-size:11px;color:var(--tx3)">Иконка появится</div></div>
+          </div>
+          <div style="padding:18px 26px"><div style="font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);margin-bottom:12px">Иконки приложения — нажмите для скачивания</div><div id="ir" style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛЬНОЕ ОКНО -->
+<div class="modal-overlay" id="modal">
+  <div class="mo" id="modal-body"></div>
+</div>
+<div id="toast"></div>
+
+<script>
+const NEWS=[
+  {city:'ekb',tag:'Ипотека',title:'ЦБ оставил ставку 16%: рынок жилья Екатеринбурга',date:'11 июн 2026',cat:'ip',color:'#185fa5'},
+  {city:'ekb',tag:'Новостройки',title:'УГМК открыла ЖК «Уралмаш»: от 12,5 млн ₽',date:'10 июн 2026',cat:'',color:'#c25f1f'},
+  {city:'msk',tag:'Аналитика',title:'Москва: вторичка снизилась на 2,3% за май',date:'10 июн 2026',cat:'inv',color:'#534ab7'},
+  {city:'ekb',tag:'Инвестиции',title:'Флиппинг в Екатеринбурге: доходность до 28%',date:'9 июн 2026',cat:'inv',color:'#0f6e56'},
+  {city:'msk',tag:'Ипотека',title:'Семейная ипотека продлена до 2030',date:'9 июн 2026',cat:'ip',color:'#185fa5'},
+  {city:'ekb',tag:'Trade-In',title:'Спрос на Trade-In в Екб вырос на 34%',date:'8 июн 2026',cat:'',color:'#c25f1f'},
+];
+const AVCL=['#4A423C','#c25f1f','#185fa5','#0f6e56','#534ab7','#854f0b','#3b6d11','#72243e'];
+const CLR=['#c25f1f','#185fa5','#0f6e56','#534ab7','#854f0b','#3b6d11'];
+let devs=[],realtors=[],requests=[],deals=[],cr='rl',nff='all',an=[],selColor=AVCL[0];
+let curRl={name:'Мой профиль',init:'МИ',spec:'Риэлтор · ДАРТС',city:'Екатеринбург',phone:'',bio:'',color:'#4A423C',exp:'',deals:0,published:false};
+
+function oym(){ window.open('https://yandex.ru/maps/?text=%D0%95%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%BD%D0%B1%D1%83%D1%80%D0%B3%2C+%D1%83%D0%BB.+%D0%9C%D0%B0%D1%80%D1%88%D0%B0%D0%BB%D0%B0+%D0%96%D1%83%D0%BA%D0%BE%D0%B2%D0%B0%2C+14','_blank'); }
+function gp(id,ne){ document.querySelectorAll('.pg').forEach(p=>p.classList.remove('act')); document.querySelectorAll('.sn').forEach(n=>n.classList.remove('act')); const el=document.getElementById('p-'+id); if(el) el.classList.add('act'); if(ne) ne.classList.add('act'); if(id==='news') ln(); if(id==='devs') renderDevs('all'); if(id==='realtors') renderRealtors(); if(id==='jur') renderJurReqs('all'); if(id==='adm') renderAdm(); if(id==='pwa') ri(); if(id==='rl') renderRlCab(); }
+function sr(r,el){ cr=r; document.querySelectorAll('.rp').forEach(p=>p.classList.remove('act')); el.classList.add('act'); }
+function dl(){ const m={rl:'rl',dir:'dir',adm:'adm',jur:'jur',crm:'crm'}; document.querySelectorAll('.pg').forEach(p=>p.classList.remove('act')); document.getElementById('p-'+m[cr]).classList.add('act'); if(m[cr]==='rl') renderRlCab(); if(m[cr]==='jur') renderJurReqs('all'); if(m[cr]==='adm') renderAdm(); }
+function ln(){ const el=document.getElementById('nf'); if(el) el.innerHTML='<div style="padding:14px;color:var(--tx3);font-size:12px"><span class="sp"></span>Загружаем…</div>'; setTimeout(()=>{ an=NEWS; rn(nff); rhn(); },700); }
+function nh(d){ return d.map((n,i)=>`<div class="nr"><div style="font-size:12px;color:var(--tx3);width:16px;text-align:right;flex-shrink:0">${i+1}</div><div class="nth" style="background:${n.color}14;color:${n.color}">${n.city==='ekb'?'ЕКБ':'МСК'}</div><div class="ni"><div class="nt">${n.title}</div><div class="nm">${n.date} · ${n.tag}</div></div><div class="nc">${n.city==='ekb'?'Екб':'Мск'}</div></div>`).join(''); }
+function rn(f){ const el=document.getElementById('nf'); if(!el) return; const s=an.length?an:NEWS; const d=f==='all'?s:f==='ekb'?s.filter(n=>n.city==='ekb'):f==='msk'?s.filter(n=>n.city==='msk'):f==='ip'?s.filter(n=>n.cat==='ip'):s.filter(n=>n.cat==='inv'); el.innerHTML=nh(d); }
+function rhn(){ const el=document.getElementById('hn'); if(!el) return; el.innerHTML=nh(NEWS.slice(0,4)); }
+function fn(f,el){ nff=f; document.querySelectorAll('#p-news .fl').forEach(b=>b.classList.remove('act')); el.classList.add('act'); rn(f); }
+function sdm(type){
+  selColor=AVCL[0];
+  const body=document.getElementById('modal-body');
+  const T={dev:'Добавить застройщика',req_legal:'Запрос юристу — подготовка договора',req_room:'Бронирование переговорки',portfolio:'Моё портфолио',add_deal:'Добавить сделку',rl_admin:'Добавить риэлтора'};
+  let h=`<div style="display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:500;margin-bottom:16px;color:var(--tx)">${T[type]||''} <button onclick="hm()" style="background:none;border:none;color:var(--tx3);cursor:pointer;font-size:18px">&times;</button></div>`;
+  if(type==='dev'){ h+=`<div class="fld"><label>Название</label><input id="fn1" placeholder="УГМК, ТЭН, ПИК…"></div><div class="fld"><label>Город</label><select id="fc"><option value="ekb">Екатеринбург</option><option value="msk">Москва</option><option value="both">Оба города</option></select></div><div class="fld"><label>Проекты / ЖК</label><input id="fp" placeholder="ЖК Уралмаш…"></div><div class="fld"><label>Цена от</label><input id="fpr" placeholder="от 6 млн ₽"></div><div class="fld"><label>Комиссия агентству</label><input id="fcm" placeholder="1,2%"></div><div class="fld"><label>Trade-In</label><select id="fti"><option value="yes">Да</option><option value="no">Нет</option></select></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="adv()">ДОБАВИТЬ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  else if(type==='req_legal'){ h+=`<div style="font-size:11px;color:var(--tx2);margin-bottom:14px;background:var(--or2);padding:10px;border-left:2px solid var(--or)">Заявка будет направлена юрисконсульту. Укажите данные для подготовки договора.</div><div class="fld"><label>Тип договора</label><select id="req-type"><option>Договор купли-продажи</option><option>Договор аренды</option><option>Агентский договор</option><option>ДДУ (долевое участие)</option></select></div><div class="fld"><label>ФИО клиента</label><input id="req-client" placeholder="Иванов Иван Иванович"></div><div class="fld"><label>Паспортные данные</label><input id="req-passport" placeholder="Серия, номер, кем выдан, дата"></div><div class="fld"><label>Объект недвижимости</label><input id="req-obj" placeholder="г. Екатеринбург, ул. Ленина, 10, кв. 5"></div><div class="fld"><label>Кадастровый номер</label><input id="req-kn" placeholder="66:41:…"></div><div class="fld"><label>Сумма сделки</label><input id="req-sum" placeholder="5 000 000 ₽"></div><div class="fld"><label>Особые условия</label><textarea id="req-comment" rows="2" placeholder="Рассрочка, ипотека…"></textarea></div><div class="fld"><label>Документы (перечислите)</label><textarea id="req-docs" rows="2" placeholder="Выписка ЕГРН, паспорт, ДДУ…"></textarea></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="sendLegalReq()">ОТПРАВИТЬ ЮРИСТУ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  else if(type==='req_room'){ h+=`<div class="fld"><label>Дата</label><input id="room-date" type="date"></div><div class="fld"><label>Время</label><select id="room-time"><option>09:00–10:00</option><option>10:00–11:00</option><option>11:00–12:00</option><option>14:00–15:00</option><option>15:00–16:00</option><option>16:00–17:00</option></select></div><div class="fld"><label>Переговорная</label><select id="room-room"><option>Переговорная №1 (6 мест)</option><option>Переговорная №2 (10 мест)</option></select></div><div class="fld"><label>Цель встречи</label><input id="room-goal" placeholder="Встреча с клиентом…"></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="sendRoomReq()">ЗАБРОНИРОВАТЬ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  else if(type==='portfolio'){ h+=`<div class="fld"><label>Имя и фамилия</label><input id="p-name" value="${curRl.name}"></div><div class="fld"><label>Специализация</label><input id="p-spec" value="${curRl.spec}"></div><div class="fld"><label>Город</label><select id="p-city"><option${curRl.city==='Екатеринбург'?' selected':''}>Екатеринбург</option><option${curRl.city==='Москва'?' selected':''}>Москва</option><option${curRl.city==='Екатеринбург · Москва'?' selected':''}>Екатеринбург · Москва</option></select></div><div class="fld"><label>Телефон</label><input id="p-phone" value="${curRl.phone}" type="tel"></div><div class="fld"><label>Опыт работы</label><input id="p-exp" value="${curRl.exp||''}"></div><div class="fld"><label>Сделок закрыто</label><input id="p-deals" value="${curRl.deals||0}" type="number" min="0"></div><div class="fld"><label>О себе</label><textarea id="p-bio" rows="2">${curRl.bio}</textarea></div><div class="fld"><label>Цвет аватара</label><div class="color-row">${AVCL.map((c,i)=>`<div class="cd${curRl.color===c?' sel':''}" style="background:${c}" onclick="pickColor('${c}',this)"></div>`).join('')}</div></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="savePortfolio()">СОХРАНИТЬ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  else if(type==='add_deal'){ h+=`<div class="fld"><label>Объект</label><input id="d-obj" placeholder="ЖК Никольский, кв. 34"></div><div class="fld"><label>Тип сделки</label><select id="d-type"><option>Продажа вторичного жилья</option><option>УГМК / новостройка</option><option>Trade-In</option><option>Аренда</option></select></div><div class="fld"><label>Клиент</label><input id="d-client" placeholder="Иванов И.И."></div><div class="fld"><label>Сумма комиссии</label><input id="d-sum" placeholder="180 000 ₽"></div><div class="fld"><label>Статус</label><select id="d-status"><option>В работе</option><option>На согласовании</option><option>Закрыта</option></select></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="addDeal()">ДОБАВИТЬ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  else if(type==='rl_admin'){ h+=`<div class="fld"><label>Имя и фамилия</label><input id="ra-name" placeholder="Иван Иванов"></div><div class="fld"><label>Специализация</label><input id="ra-spec" placeholder="Вторичный рынок…"></div><div class="fld"><label>Город</label><select id="ra-city"><option>Екатеринбург</option><option>Москва</option></select></div><div class="fld"><label>Телефон</label><input id="ra-phone" type="tel"></div><div class="fld"><label>Цвет аватара</label><div class="color-row">${AVCL.map((c,i)=>`<div class="cd${i===0?' sel':''}" style="background:${c}" onclick="pickColor('${c}',this)"></div>`).join('')}</div></div><div style="display:flex;gap:8px;margin-top:16px"><button class="bor" onclick="addRlAdmin()">ДОБАВИТЬ</button><button class="bwh" onclick="hm()">ОТМЕНА</button></div>`; }
+  body.innerHTML=h; document.getElementById('modal').classList.add('open');
+}
+function hm(){ document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click',function(e){ if(e.target===this) hm(); });
+function pickColor(c,el){ selColor=c; document.querySelectorAll('.cd').forEach(d=>d.classList.remove('sel')); el.classList.add('sel'); }
+function adv(){ const name=document.getElementById('fn1').value.trim(); if(!name) return; devs.push({name,city:document.getElementById('fc').value,proj:document.getElementById('fp').value.trim()||'Проекты уточняются',price:document.getElementById('fpr').value.trim()||'По запросу',comm:document.getElementById('fcm').value.trim()||'Уточняется',tradein:document.getElementById('fti').value==='yes',color:CLR[devs.length%CLR.length],init:name.split(' ').map(w=>w[0]).join('').substring(0,3).toUpperCase()}); hm(); renderDevs('all'); updCounts(); }
+function fd(f,el){ document.querySelectorAll('#df .fl').forEach(b=>b.classList.remove('act')); el.classList.add('act'); renderDevs(f); }
+function renderDevs(f){ const g=document.getElementById('dg'),e=document.getElementById('de'),fi=document.getElementById('df'),h=document.getElementById('dh'); let d=devs; if(f==='ekb') d=devs.filter(x=>x.city==='ekb'||x.city==='both'); else if(f==='msk') d=devs.filter(x=>x.city==='msk'||x.city==='both'); else if(f==='ti') d=devs.filter(x=>x.tradein); if(!devs.length){ e.style.display='block'; g.innerHTML=''; fi.style.display='none'; if(h) h.style.display='block'; } else{ e.style.display='none'; fi.style.display='flex'; if(h) h.style.display='none'; g.innerHTML=d.map((x,i)=>`<div class="card"><div style="width:36px;height:36px;background:${x.color}18;color:${x.color};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;margin-bottom:10px">${x.init}</div><div style="font-size:13px;font-weight:500;margin-bottom:3px;color:var(--tx)">${x.name}</div><div style="font-size:11px;color:var(--tx2);margin-bottom:9px">${x.proj}</div><div style="font-size:14px;font-weight:300;color:var(--tx)">${x.price}</div><div style="font-size:10px;color:var(--tx3);margin-top:3px">Комиссия: ${x.comm}</div>${x.tradein?'<span class="bdk bpd" style="margin-top:6px;display:inline-block">Trade-In</span>':''}<div style="display:flex;gap:6px;margin-top:12px"><button class="bor-sm">ПОДРОБНЕЕ</button><button onclick="rmDev(${i})" style="background:var(--bg3);color:var(--tx3);border:none;padding:5px 10px;font-size:10px;cursor:pointer">&#128465;</button></div></div>`).join(''); } }
+function rmDev(i){ devs.splice(i,1); renderDevs('all'); updCounts(); }
+function addRlAdmin(){ const name=document.getElementById('ra-name').value.trim(); if(!name) return; const init=name.split(' ').filter(Boolean).map(w=>w[0].toUpperCase()).slice(0,2).join(''); realtors.push({name,spec:document.getElementById('ra-spec').value.trim(),city:document.getElementById('ra-city').value,phone:document.getElementById('ra-phone').value.trim(),color:selColor,init,exp:'',deals:0,bio:''}); hm(); renderRealtors(); renderHomeRealtors(); updCounts(); }
+function savePortfolio(){ const name=document.getElementById('p-name').value.trim()||'Мой профиль'; const init=name.split(' ').filter(Boolean).map(w=>w[0].toUpperCase()).slice(0,2).join(''); curRl={name,spec:document.getElementById('p-spec').value.trim(),city:document.getElementById('p-city').value,phone:document.getElementById('p-phone').value.trim(),exp:document.getElementById('p-exp').value.trim(),deals:parseInt(document.getElementById('p-deals').value)||0,bio:document.getElementById('p-bio').value.trim(),color:selColor,init,published:true}; const ex=realtors.findIndex(r=>r._mine); if(ex>=0) realtors[ex]={...curRl,_mine:true}; else realtors.push({...curRl,_mine:true}); hm(); renderRlCab(); renderRealtors(); renderHomeRealtors(); updCounts(); }
+function renderRealtors(){ const g=document.getElementById('rl-grid'),e=document.getElementById('rl-empty'); if(!realtors.length){ g.innerHTML=''; e.style.display='block'; return; } e.style.display='none'; g.innerHTML=realtors.map((r,i)=>`<div class="rl-card"><button class="rl-del" onclick="rmRl(${i})">&#128465;</button><div class="rl-av" style="background:${r.color}">${r.init}</div><div class="rl-name">${r.name}</div>${r.spec?`<div class="rl-spec">${r.spec}</div>`:''}<div class="rl-city">${r.city||'Екатеринбург'}</div>${(r.deals||r.exp)?`<div class="rl-stats">${r.deals?`<div><div class="rl-sv">${r.deals}</div><div class="rl-sl">сделок</div></div>`:''}${r.exp?`<div><div class="rl-sv">${r.exp}</div><div class="rl-sl">опыт</div></div>`:''}</div>`:''} ${r.bio?`<div class="rl-bio">${r.bio}</div>`:''} ${r.phone?`<a href="tel:${r.phone.replace(/\D/g,'')}" class="rl-phone">${r.phone}</a>`:''}</div>`).join(''); }
+function rmRl(i){ realtors.splice(i,1); renderRealtors(); renderHomeRealtors(); updCounts(); }
+function renderHomeRealtors(){ const el=document.getElementById('hr'); if(!el) return; if(!realtors.length){ el.innerHTML='<div style="font-size:12px;color:var(--tx3);padding:6px 0">Команда пока не добавлена</div>'; return; } el.innerHTML=realtors.map(r=>`<div style="flex-shrink:0;width:100px;text-align:center;cursor:pointer" onclick="gp('realtors',null)"><div style="width:60px;height:60px;background:${r.color};display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;margin:0 auto 8px;letter-spacing:2px">${r.init}</div><div style="font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--tx)">${r.name}</div><div style="font-size:10px;color:var(--tx3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.spec||''}</div></div>`).join(''); }
+function renderRlCab(){ const p=document.getElementById('rl-port-preview'); if(p){ p.innerHTML=`<div style="width:50px;height:50px;background:${curRl.color};margin:0 auto 9px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;letter-spacing:2px">${curRl.init}</div><div style="font-size:13px;margin-bottom:2px">${curRl.name}</div><div style="font-size:10px;color:var(--tx3);margin-bottom:10px">${curRl.spec}</div><button class="bor-sm" onclick="sdm('portfolio')">${curRl.published?'РЕДАКТИРОВАТЬ':'ЗАПОЛНИТЬ'}</button>${curRl.published?'<div style="margin-top:8px"><span class="bdk bok">Опубликовано</span></div>':''}`; }
+  const c=document.getElementById('rl-deals-cnt'); if(c) c.textContent=deals.length; renderRlReqs(); renderRlDealsList(); }
+function renderRlReqs(){ const el=document.getElementById('rl-reqs'); if(!el) return; const mine=requests.slice(-5).reverse(); if(!mine.length){ el.innerHTML='<div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Заявок пока нет.</div>'; return; } el.innerHTML=mine.map(r=>`<div class="req-card"><div class="req-hd"><div class="req-icon"><i class="ti ${r.type==='legal'?'ti-scale':'ti-calendar'}" style="color:${r.type==='legal'?'#185fa5':'#0f6e56'}"></i></div><div><div class="req-title">${r.title}</div><div class="req-sub">${r.date}</div></div><div style="margin-left:auto"><span class="bdk ${sBdk(r.status)}">${r.status}</span></div></div>${r.returnComment?`<div style="font-size:11px;color:#8B1A1A;background:#FAEAEA;padding:8px 10px;margin-bottom:8px;border-left:2px solid #8B1A1A">${r.returnComment}</div>`:''}</div>`).join(''); }
+function renderRlDealsList(){ const el=document.getElementById('rl-deals-list'); if(!el) return; if(!deals.length){ el.innerHTML='<div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Сделки появятся здесь.</div>'; return; } el.innerHTML=`<div class="card">${deals.map(d=>`<div class="deal-row"><div><div style="font-size:12px;color:var(--tx)">${d.obj}</div><div style="font-size:10px;color:var(--tx3)">${d.type} · ${d.client}</div></div><div style="text-align:right"><div style="font-size:12px;color:var(--or)">${d.sum}</div><span class="bdk ${d.status==='Закрыта'?'bok':d.status==='В работе'?'bpd':'bnw'}">${d.status}</span></div></div>`).join('')}</div>`; }
+function sendLegalReq(){ const now=new Date().toLocaleString('ru'); requests.push({id:Date.now(),type:'legal',title:document.getElementById('req-type')?.value||'Договор',date:now,status:'Новая',from:curRl.name,details:{client:document.getElementById('req-client')?.value.trim()||'',obj:document.getElementById('req-obj')?.value.trim()||'',passport:document.getElementById('req-passport')?.value.trim()||'',kn:document.getElementById('req-kn')?.value.trim()||'',sum:document.getElementById('req-sum')?.value.trim()||'',comment:document.getElementById('req-comment')?.value.trim()||'',docs:document.getElementById('req-docs')?.value.trim()||''}}); hm(); renderRlReqs(); renderJurReqs('all'); renderAdm(); updCounts(); showToast('Заявка отправлена юристу'); }
+function sendRoomReq(){ const now=new Date().toLocaleString('ru'); requests.push({id:Date.now(),type:'room',title:`${document.getElementById('room-room')?.value} — ${document.getElementById('room-date')?.value} ${document.getElementById('room-time')?.value}`,date:now,status:'Новая',from:curRl.name}); hm(); renderRlReqs(); renderAdm(); updCounts(); showToast('Заявка на бронирование отправлена'); }
+function addDeal(){ const obj=document.getElementById('d-obj')?.value.trim()||'Объект'; deals.push({obj,type:document.getElementById('d-type')?.value,client:document.getElementById('d-client')?.value.trim()||'Клиент',sum:document.getElementById('d-sum')?.value.trim()||'—',status:document.getElementById('d-status')?.value}); hm(); renderRlCab(); }
+function renderJurReqs(f){ const el=document.getElementById('jur-list'); if(!el) return; let data=requests.filter(r=>r.type==='legal'); if(f==='new') data=data.filter(r=>r.status==='Новая'); else if(f==='wip') data=data.filter(r=>r.status==='В работе'); else if(f==='done') data=data.filter(r=>r.status==='Исполнено'); else if(f==='ret') data=data.filter(r=>r.status==='Возвращено'); updJurCounts(); if(!data.length){ el.innerHTML='<div class="es" style="padding:28px"><i class="ti ti-scale"></i><p>Заявок нет.</p></div>'; return; } el.innerHTML=data.map(r=>{ const d=r.details||{}; return `<div class="req-card"><div class="req-hd"><div class="req-icon"><i class="ti ti-scale" style="color:#185fa5"></i></div><div><div class="req-title">${r.title}</div><div class="req-sub">от ${r.from} · ${r.date}</div></div><div style="margin-left:auto"><span class="bdk ${sBdk(r.status)}">${r.status}</span></div></div><div class="req-body">${d.client?`<div class="req-field"><span class="lbl">Клиент:</span><span class="val">${d.client}</span></div>`:''} ${d.passport?`<div class="req-field"><span class="lbl">Паспорт:</span><span class="val">${d.passport}</span></div>`:''} ${d.obj?`<div class="req-field"><span class="lbl">Объект:</span><span class="val">${d.obj}</span></div>`:''} ${d.kn?`<div class="req-field"><span class="lbl">Кадастр. №:</span><span class="val">${d.kn}</span></div>`:''} ${d.sum?`<div class="req-field"><span class="lbl">Сумма:</span><span class="val">${d.sum}</span></div>`:''} ${d.docs?`<div class="req-field"><span class="lbl">Документы:</span><span class="val">${d.docs}</span></div>`:''} ${d.comment?`<div class="req-field"><span class="lbl">Условия:</span><span class="val">${d.comment}</span></div>`:''}</div><div class="req-actions">${r.status!=='В работе'&&r.status!=='Исполнено'?`<button class="bsm" onclick="jurAction(${requests.indexOf(r)},'wip')">В РАБОТУ</button>`:''} ${r.status!=='Исполнено'?`<button class="bor-sm" onclick="jurAction(${requests.indexOf(r)},'done')">ИСПОЛНЕНО</button>`:''} ${r.status!=='Возвращено'?`<button class="bwh" style="font-size:11px;padding:5px 12px" onclick="jurReturn(${requests.indexOf(r)})">НА ДОРАБОТКУ</button>`:''}</div></div>`; }).join(''); }
+function jurFilter(f,el){ document.querySelectorAll('#jf .fl').forEach(b=>b.classList.remove('act')); el.classList.add('act'); renderJurReqs(f); }
+function jurAction(idx,s){ if(requests[idx]) requests[idx].status=s; renderJurReqs('all'); renderRlReqs(); updJurCounts(); showToast(s==='done'?'Заявка исполнена':'Заявка взята в работу'); }
+function jurReturn(idx){ const c=prompt('Причина возврата / что добавить:'); if(c===null) return; if(requests[idx]){ requests[idx].status='Возвращено'; requests[idx].returnComment=c; } renderJurReqs('all'); renderRlReqs(); updJurCounts(); showToast('Заявка возвращена на доработку'); }
+function updJurCounts(){ const leg=requests.filter(r=>r.type==='legal'); ['jur-new-cnt','jur-wip-cnt','jur-done-cnt','jur-ret-cnt'].forEach((id,i)=>{ const el=document.getElementById(id); if(el) el.textContent=leg.filter(r=>r.status===['Новая','В работе','Исполнено','Возвращено'][i]).length; }); }
+function renderAdm(){ updCounts(); const rooms=document.getElementById('adm-rooms'); if(rooms){ const rb=requests.filter(r=>r.type==='room'); if(!rb.length) rooms.innerHTML='<div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Нет заявок.</div>'; else rooms.innerHTML=rb.map(r=>`<div class="req-card"><div class="req-hd"><div class="req-icon"><i class="ti ti-calendar" style="color:#0f6e56"></i></div><div><div class="req-title">${r.title}</div><div class="req-sub">от ${r.from} · ${r.date}</div></div><div style="margin-left:auto"><span class="bdk ${sBdk(r.status)}">${r.status}</span></div></div><div class="req-actions"><button class="bor-sm" onclick="admRoomOk(${requests.indexOf(r)})">ПОДТВЕРДИТЬ</button> <button class="bwh" style="font-size:11px;padding:5px 12px" onclick="admRoomReject(${requests.indexOf(r)})">ОТКЛОНИТЬ</button></div></div>`).join(''); }
+  const rlList=document.getElementById('adm-rl-list'); if(rlList){ if(!realtors.length) rlList.innerHTML='<div style="font-size:11px;color:var(--tx3);padding:12px;background:var(--bg2);border-left:2px solid var(--brd)">Риэлторы не добавлены.</div>'; else rlList.innerHTML=`<div style="display:flex;flex-direction:column;gap:1px;background:var(--brd)">${realtors.map((r,i)=>`<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card)"><div style="width:30px;height:30px;background:${r.color};display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:12px;color:#fff;flex-shrink:0">${r.init}</div><div style="flex:1;min-width:0"><div style="font-size:12px;color:var(--tx)">${r.name}</div><div style="font-size:10px;color:var(--tx3)">${r.spec||'—'} · ${r.city||'Екб'}</div></div><button onclick="rmRlAdm(${i})" style="background:none;border:none;color:var(--tx3);cursor:pointer;font-size:11px">&#128465;</button></div>`).join('')}</div>`; } }
+function admRoomOk(idx){ if(requests[idx]) requests[idx].status='Подтверждено'; renderAdm(); renderRlReqs(); showToast('Бронирование подтверждено'); }
+function admRoomReject(idx){ if(requests[idx]) requests[idx].status='Отклонено'; renderAdm(); renderRlReqs(); showToast('Бронирование отклонено'); }
+function rmRlAdm(i){ realtors.splice(i,1); renderRealtors(); renderHomeRealtors(); renderAdm(); }
+function loadCRM(){ const el=document.getElementById('crm-list'); if(!el) return; el.innerHTML='<div style="padding:12px;color:var(--tx3);font-size:11px"><span class="sp"></span>Загружаем из CRM…</div>'; setTimeout(()=>{ const d=[{s:'g',obj:'ЖК Уралмаш, 2к',cl:'Петров И.И.',st:'Переговоры',sum:'14 500 000 ₽'},{s:'a',obj:'ул. Ленина, 45, 3к',cl:'Смирнова А.В.',st:'Показ объекта',sum:'7 200 000 ₽'},{s:'g',obj:'Коммерч., 8 Марта',cl:'ООО «Альфа»',st:'Подписание',sum:'12 000 000 ₽'}]; el.innerHTML=`<div class="card">${d.map(x=>`<div class="crm-row"><div class="crm-st" style="background:${x.s==='g'?'#0B5E3D':'#854f0b'}"></div><div style="flex:1;min-width:0"><div style="font-size:12px;color:var(--tx)">${x.obj}</div><div style="font-size:10px;color:var(--tx3)">${x.cl} · ${x.st}</div></div><div style="font-size:12px;color:var(--or)">${x.sum}</div></div>`).join('')}</div>`; },900); }
+function sBdk(s){ return s==='Новая'?'bnw':s==='В работе'?'bpd':s==='Исполнено'?'bok':s==='Подтверждено'?'bok':'bred'; }
+function updCounts(){ const s=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; }; s('dir-rl-cnt',realtors.length); s('dir-dev-cnt',devs.length); s('dir-jur-cnt',requests.filter(r=>r.type==='legal').length); s('adm-rl-cnt',realtors.length); s('adm-dev-cnt',devs.length); s('adm-room-cnt',requests.filter(r=>r.type==='room').length); s('adm-req-cnt',requests.length); }
+let toastT; function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.style.opacity='1'; clearTimeout(toastT); toastT=setTimeout(()=>t.style.opacity='0',2500); }
+function ri(){ const row=document.getElementById('ir'); if(!row||row.children.length>0) return; [72,96,128,152,192,512].forEach(sz=>{ const d=Math.min(sz,64); const w=document.createElement('div'); w.style.cssText='text-align:center;cursor:pointer'; const cv=document.createElement('canvas'); cv.width=d; cv.height=d; cv.style.display='block'; const lb=document.createElement('div'); lb.style.cssText='font-size:9px;color:var(--tx3);margin-top:3px;text-align:center'; lb.textContent=sz+'×'+sz; w.appendChild(cv); w.appendChild(lb); w.onclick=()=>di(sz); row.appendChild(w); setTimeout(()=>dri(cv,d),80); }); }
+function dri(cv,d){ const ctx=cv.getContext('2d'); ctx.fillStyle='#4A423C'; ctx.fillRect(0,0,d,d); ctx.strokeStyle='#E8711A'; ctx.lineWidth=Math.max(1.5,d*.03); ctx.strokeRect(d*.08,d*.08,d*.84,d*.84); ctx.lineWidth=Math.max(1,d*.02); ctx.beginPath(); ctx.moveTo(d*.5,d*.08); ctx.lineTo(d*.5,d*.92); ctx.stroke(); ctx.beginPath(); ctx.moveTo(d*.08,d*.5); ctx.lineTo(d*.92,d*.5); ctx.stroke(); ctx.lineWidth=Math.max(1.5,d*.03); ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(d*.18,d*.82); ctx.lineTo(d*.82,d*.18); ctx.stroke(); ctx.lineJoin='round'; ctx.beginPath(); ctx.moveTo(d*.6,d*.18); ctx.lineTo(d*.82,d*.18); ctx.lineTo(d*.82,d*.4); ctx.stroke(); }
+function di(sz){ const cv=document.createElement('canvas'); cv.width=sz; cv.height=sz; dri(cv,sz); const a=document.createElement('a'); a.download=`darts-icon-${sz}x${sz}.png`; a.href=cv.toDataURL('image/png'); a.click(); }
+setTimeout(()=>{ rhn(); renderHomeRealtors(); renderRealtors(); renderDevs('all'); updCounts(); },300);
+</script>
+</body>
+</html>

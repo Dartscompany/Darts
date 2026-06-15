@@ -169,9 +169,254 @@ html,body{height:100%;background:var(--bg);font-family:var(--sans);color:var(--t
 .cd{width:22px;height:22px;cursor:pointer;border:2px solid transparent;transition:border-color 0.15s}
 .cd.sel{border-color:var(--sb)}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--sb);color:#fff;padding:9px 20px;font-size:11px;z-index:200;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.3s;letter-spacing:0.5px}
+
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+@media (max-width: 768px) {
+  /* Скрываем десктопный сайдбар */
+  .sb { display: none !important; }
+  
+  /* Убираем отступ от сайдбара */
+  div[style*="margin-left:240px"] {
+    margin-left: 0 !important;
+  }
+  
+  /* Основная область на всю ширину */
+  .main-wrap, [style*="margin-left:240"] {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Топбар */
+  .tb {
+    padding: 10px 14px 9px !important;
+    gap: 8px !important;
+  }
+  .tbb { display: none !important; }
+  .sb2 { max-width: none !important; flex: 1 !important; }
+  .tbr span { display: none !important; }
+
+  /* Контент */
+  .ct { padding: 14px 14px 80px !important; }
+
+  /* Герой */
+  .hero { padding: 20px 16px !important; margin-bottom: 18px !important; }
+  .htt { font-size: 18px !important; }
+  .hd { font-size: 11px !important; }
+  .hb { gap: 7px !important; }
+  .hbor, .hbwh { padding: 9px 14px !important; font-size: 11px !important; }
+  .hs { grid-template-columns: 1fr !important; gap: 1px !important; }
+
+  /* Гриды */
+  .g2 { grid-template-columns: 1fr !important; }
+  .g3 { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+
+  /* Карточки риэлторов */
+  .rl-card { padding: 14px !important; }
+
+  /* Таблицы метрик */
+  .mets { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* Контакты */
+  .cg { grid-template-columns: 1fr !important; }
+  .dir-card { flex-direction: column !important; text-align: center !important; }
+  .dir-av { margin: 0 auto !important; }
+
+  /* Кабинет риэлтора — 3 блока в 1 колонку */
+  [style*="grid-template-columns:1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Заявки */
+  .req-actions { flex-direction: column !important; }
+  .req-actions button { width: 100% !important; }
+
+  /* Форма входа */
+  .lw { margin: 16px auto !important; }
+  .rrow { grid-template-columns: repeat(3,1fr) !important; }
+
+  /* Директор */
+  [style*="display:grid;grid-template-columns:1fr 1fr;gap:14px"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Заголовки разделов */
+  .sh { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; flex-wrap: wrap !important; }
+  .sh > div:last-child { display: flex !important; flex-wrap: wrap !important; gap: 7px !important; }
+
+  /* Фильтры */
+  .fr { flex-wrap: wrap !important; gap: 5px !important; }
+  .fl { font-size: 11px !important; padding: 5px 11px !important; }
+
+  /* PWA иконки */
+  #ir { gap: 10px !important; }
+
+  /* Модал */
+  .modal-overlay { padding: 12px !important; align-items: flex-end !important; }
+  .mo { max-height: 90vh !important; border-radius: 16px 16px 0 0 !important; padding: 20px 16px !important; }
+
+  /* Горизонтальная лента риэлторов */
+  .yr { gap: 10px !important; }
+
+  /* Строки таблицы кабинетов */
+  .tbl, .tbl thead, .tbl tbody, .tbl tr {
+    display: block !important;
+    width: 100% !important;
+  }
+  .tbl th { display: none !important; }
+  .tbl td {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 6px 0 !important;
+    font-size: 11px !important;
+  }
+  .tbl td:first-child { font-weight: 500 !important; }
+}
+
+
+  /* Основной контент без отступа сайдбара на мобильном */
+  #main-content {
+    margin-left: 0 !important;
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+  /* Весь flex-контейнер */
+  body > div {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+/* МОБИЛЬНЫЙ ТАБ-БАР (нижняя навигация) */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--sb);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 50;
+  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+}
+.mobile-nav-inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mob-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.15s;
+  min-width: 48px;
+  border: none;
+  background: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.mob-tab.act { color: var(--or); }
+.mob-tab i { font-size: 20px; }
+.mob-tab span { font-size: 9px; letter-spacing: 0.3px; }
+
+/* Кнопка «ещё» — показывает боковое меню на моб */
+.mob-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(61,53,48,0.6);
+  z-index: 60;
+}
+.mob-menu-overlay.open { display: block; }
+.mob-menu-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--sb);
+  border-radius: 16px 16px 0 0;
+  padding: 20px 0 max(20px, env(safe-area-inset-bottom));
+  z-index: 61;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+.mob-menu-drawer .sn {
+  padding: 11px 24px !important;
+  font-size: 14px !important;
+  color: rgba(255,255,255,0.7) !important;
+}
+.mob-menu-drawer .sn.act { color: var(--or) !important; background: var(--sb-act) !important; }
+.mob-menu-drawer .sn:hover { color: #fff !important; }
+.mob-menu-handle {
+  width: 36px; height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin: 0 auto 16px;
+}
+.mob-menu-title {
+  font-size: 9px; letter-spacing: 2px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  padding: 4px 24px;
+  margin-top: 4px;
+}
+.mob-menu-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 6px 0; }
+
+@media (max-width: 768px) {
+  .mobile-nav { display: block; }
+}
 </style>
 </head>
 <body>
+
+<!-- МОБИЛЬНЫЙ ТАБ-БАР -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <button class="mob-tab act" onclick="mobNav('home',this)" id="mob-home">
+      <i class="ti ti-home"></i>
+      <span>Главная</span>
+    </button>
+    <button class="mob-tab" onclick="mobNav('news',this)" id="mob-news">
+      <i class="ti ti-news"></i>
+      <span>Новости</span>
+    </button>
+    <button class="mob-tab" onclick="mobNav('realtors',this)" id="mob-realtors">
+      <i class="ti ti-users"></i>
+      <span>Риэлторы</span>
+    </button>
+    <button class="mob-tab" onclick="mobNav('contacts',this)" id="mob-contacts">
+      <i class="ti ti-map-pin"></i>
+      <span>Контакты</span>
+    </button>
+    <button class="mob-tab" onclick="openMobMenu()" id="mob-more">
+      <i class="ti ti-menu-2"></i>
+      <span>Ещё</span>
+    </button>
+  </div>
+</nav>
+
+<!-- DRAWER (выдвижное меню) -->
+<div class="mob-menu-overlay" id="mob-overlay" onclick="closeMobMenu()"></div>
+<div class="mob-menu-drawer" id="mob-drawer">
+  <div class="mob-menu-handle"></div>
+  <div class="mob-menu-title">Разделы</div>
+  <div class="sn" onclick="mobNav('devs',null);closeMobMenu()"><i class="ti ti-building-skyscraper"></i>Застройщики</div>
+  <div class="mob-menu-divider"></div>
+  <div class="mob-menu-title">Кабинеты</div>
+  <div class="sn" onclick="mobNav('login',null);closeMobMenu()"><i class="ti ti-lock"></i>Войти в кабинет</div>
+  <div class="mob-menu-divider"></div>
+  <div class="mob-menu-title">Сервисы</div>
+  <div class="sn" onclick="closeMobMenu()"><i class="ti ti-refresh"></i>Trade-In</div>
+  <div class="sn" onclick="closeMobMenu()"><i class="ti ti-chart-bar"></i>Инвестиции</div>
+  <div class="sn" onclick="mobNav('pwa',null);closeMobMenu()"><i class="ti ti-device-mobile"></i>Приложение</div>
+  <div class="mob-menu-divider"></div>
+  <div class="mob-menu-title">Города</div>
+  <div class="sn"><i class="ti ti-map-pin"></i>Екатеринбург</div>
+  <div class="sn"><i class="ti ti-map-pin"></i>Москва</div>
+</div>
+
 
 <div style="display:flex;height:100vh">
   <!-- САЙДБАР -->
@@ -210,7 +455,7 @@ html,body{height:100%;background:var(--bg);font-family:var(--sans);color:var(--t
   </aside>
 
   <!-- ОСНОВНАЯ ОБЛАСТЬ -->
-  <div style="margin-left:240px;flex:1;display:flex;flex-direction:column;overflow-y:auto;height:100vh">
+  <div id="main-content" style="margin-left:240px;flex:1;display:flex;flex-direction:column;overflow-y:auto;height:100vh">
     <div class="tb">
       <button class="tbb" onclick="history.back()"><i class="ti ti-chevron-left"></i></button>
       <button class="tbb" onclick="history.forward()"><i class="ti ti-chevron-right"></i></button>
@@ -481,6 +726,26 @@ function ri(){ const row=document.getElementById('ir'); if(!row||row.children.le
 function dri(cv,d){ const ctx=cv.getContext('2d'); ctx.fillStyle='#4A423C'; ctx.fillRect(0,0,d,d); ctx.strokeStyle='#E8711A'; ctx.lineWidth=Math.max(1.5,d*.03); ctx.strokeRect(d*.08,d*.08,d*.84,d*.84); ctx.lineWidth=Math.max(1,d*.02); ctx.beginPath(); ctx.moveTo(d*.5,d*.08); ctx.lineTo(d*.5,d*.92); ctx.stroke(); ctx.beginPath(); ctx.moveTo(d*.08,d*.5); ctx.lineTo(d*.92,d*.5); ctx.stroke(); ctx.lineWidth=Math.max(1.5,d*.03); ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(d*.18,d*.82); ctx.lineTo(d*.82,d*.18); ctx.stroke(); ctx.lineJoin='round'; ctx.beginPath(); ctx.moveTo(d*.6,d*.18); ctx.lineTo(d*.82,d*.18); ctx.lineTo(d*.82,d*.4); ctx.stroke(); }
 function di(sz){ const cv=document.createElement('canvas'); cv.width=sz; cv.height=sz; dri(cv,sz); const a=document.createElement('a'); a.download=`darts-icon-${sz}x${sz}.png`; a.href=cv.toDataURL('image/png'); a.click(); }
 setTimeout(()=>{ rhn(); renderHomeRealtors(); renderRealtors(); renderDevs('all'); updCounts(); },300);
+
+// Мобильная навигация
+function mobNav(id, tabEl) {
+  gp(id, null);
+  // Снимаем активный класс со всех таб-кнопок
+  document.querySelectorAll('.mob-tab').forEach(t => t.classList.remove('act'));
+  if (tabEl) tabEl.classList.add('act');
+  // Скроллим вверх
+  window.scrollTo(0, 0);
+}
+function openMobMenu() {
+  document.getElementById('mob-overlay').classList.add('open');
+  document.getElementById('mob-drawer').style.transform = 'translateY(0)';
+}
+function closeMobMenu() {
+  document.getElementById('mob-overlay').classList.remove('open');
+}
+// Синхронизируем мобильный таб при вызове gp()
+const _origGp = gp;
+
 </script>
 </body>
 </html>
